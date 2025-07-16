@@ -1,7 +1,7 @@
 # External Dependencies
 
-- Basic utils: 'git', C compiler
-- 'ripgrep', 'fd-find'
+- Basic utils: `git`, C compiler
+- `ripgrep`, `fd-find`
 - Clipboard tool (xclip on Linux or win32yank - already installed on Windows)
 - Nerd Font
-- For treesitter: 'tar' and 'curl'
+- For treesitter: `tar` and `curl`
