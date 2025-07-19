@@ -17,7 +17,7 @@ opt.updatetime = 250 -- Decrease update time
 opt.timeoutlen = 300 -- Decrease mapped sequence wait time
 opt.splitright = true -- Open new horizontal splits right
 opt.splitbelow = true -- Open new vertical splits bottom
-opt.list = true -- Set how Neovim will display certain whitespace characters in the editor
+opt.list = false -- Set how Neovim will display certain whitespace characters in the editor
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 opt.inccommand = "split" -- Preview substitution live as you type
 opt.cursorline = true -- Show which line your cursor is on

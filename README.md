@@ -6,7 +6,7 @@
 - `ripgrep`, `fd-find`
 - Clipboard tool (`xclip` on Linux)
 - Nerd Font
-- `7zip` (forgot which plugins need this or actually unecessary) or `unzip`
+- `7zip` (on Windows for mason.nvim) or `unzip`
 - For treesitter: `tree-sitter` CLI, `tar` and `curl` (bundled with Neovim)
 - `sqlite3.dll` or `sqlite3.so` for Snacks Smart Picker
 - `rustup-nightly` for blink.cmp

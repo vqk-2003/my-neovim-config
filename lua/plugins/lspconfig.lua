@@ -102,7 +102,7 @@ return {
 				map("grt", require("snacks").picker.lsp_type_definitions, "[G]oto [T]ype Definition")
 
 				-- Show diagnostic message in a floating windows
-				map("gl", vim.diagnostic.open_float, "Open Diagnostic Window")
+				map("<Leader>d", vim.diagnostic.open_float, "Open [D]iagnostic Window")
 
 				-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
 				---@param client vim.lsp.Client
@@ -258,6 +258,7 @@ return {
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
+			"codelldb", -- Used to debug C/C++ code
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

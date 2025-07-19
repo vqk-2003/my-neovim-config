@@ -7,7 +7,8 @@ return {
 		spec = {
 			{ "<Leader>s", group = "[S]earch" },
 			{ "<Leader>t", group = "[T]oggle" },
-			{ "<Leaderh", group = "Git [H]unk", mode = { "n", "v" } },
+			{ "<Leader>h", group = "Git [H]unk", mode = { "n", "v" } },
+			{ "gr", group = "LSP Action" },
 		},
 	},
 	keys = {
