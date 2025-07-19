@@ -1,6 +1,10 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = "VeryLazy", -- faster startup time but might cause highlight delay
+	event = {
+		"BufRead",
+		"BufNewFile",
+		"VeryLazy",
+	},
 	build = ":TSUpdate",
 	main = "nvim-treesitter.configs",
 	opts = {

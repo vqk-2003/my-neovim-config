@@ -8,6 +8,13 @@ return {
 		icons.mock_nvim_web_devicons()
 
 		-- mini.files
-		require("mini.files").setup()
+		local files = require("mini.files")
+		files.setup()
+		vim.keymap.set("n", "-", function()
+			files.open()
+		end, { desc = "Open Folder Tree" })
+
+		-- mini.sessions
+		require("mini.sessions").setup()
 	end,
 }
