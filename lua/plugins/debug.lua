@@ -138,9 +138,13 @@ return {
 		dap.listeners.before.event_terminated["dapui_config"] = dapui.close
 		dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
+		local mason_registry = require("mason-registry")
+		local codelldb = mason_registry.get_package("codelldb")
+		local codelldb_path = codelldb:get_install_path() .. "/extension/lldb/bin/lldb"
+
 		dap.adapters.codelldb = {
 			type = "executable",
-			command = "codelldb",
+			command = codelldb_path,
 
 			-- On windows you may have to uncomment this:
 			detached = false,
