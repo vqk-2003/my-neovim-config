@@ -1,6 +1,9 @@
 return {
 	-- Simple syntax tree navigation and swapping with h, j, k, l
 	"aaronik/treewalker.nvim",
+	opts = {
+		highlight = false,
+	},
 	keys = {
 		{ "<C-k>", "<cmd>Treewalker Up<CR>", desc = "Jump to prev neighbor node", mode = { "n", "v" }, silent = true },
 		{

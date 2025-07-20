@@ -14,7 +14,7 @@ return {
 						desc = "Find Text",
 						action = ":lua Snacks.dashboard.pick('live_grep')",
 					},
-					{ icon = "", key = "t", desc = "Folder Tree", action = ":lua MiniFiles.open()" },
+					{ icon = "", key = "t", desc = "View Tree", action = ":lua MiniFiles.open()" },
 					{
 						icon = " ",
 						key = "c",

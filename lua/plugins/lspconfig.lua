@@ -2,11 +2,7 @@
 return {
 	-- Main LSP Configuration
 	"neovim/nvim-lspconfig",
-	event = {
-		"BufRead",
-		"BufNewFile",
-		"VeryLazy",
-	},
+	-- DO NOT EVER LAZY LOAD MASON.NVIM PLUGINS
 	dependencies = {
 		-- Automatically install LSPs and related tools to stdpath for Neovim
 		-- Mason must be loaded before its dependents so we need to set it up here.
@@ -103,6 +99,11 @@ return {
 
 				-- Show diagnostic message in a floating windows
 				map("<Leader>d", vim.diagnostic.open_float, "Open [D]iagnostic Window")
+
+				-- Toggle to show/hide diagnostic messages
+				map("<leader>td", function()
+					vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+				end, "[T]oggle [D]iagnostics")
 
 				-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
 				---@param client vim.lsp.Client
@@ -217,6 +218,7 @@ return {
 			-- gopls = {},
 			pyright = {},
 			rust_analyzer = {},
+			neocmake = {},
 			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 			--
 			-- Some languages (like typescript) have entire language plugins that can be useful:
@@ -258,13 +260,14 @@ return {
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
-			"codelldb", -- Used to debug C/C++ code
+			"clang-format", --Used to format C/C++ code
+			"gersemi", -- USed to format CMake file
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-			automatic_installation = false,
+			automatic_installation = true,
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}

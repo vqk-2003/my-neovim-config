@@ -1,6 +1,6 @@
 return { -- Autoformat
 	"stevearc/conform.nvim",
-	event = "BufWrite",
+	event = "BufWritePre",
 	cmd = { "ConformInfo" },
 	keys = {
 		{
@@ -18,7 +18,7 @@ return { -- Autoformat
 			-- Disable "format_on_save lsp_fallback" for languages that don't
 			-- have a well standardized coding style. You can add additional
 			-- languages here or re-enable it for the disabled ones.
-			local disable_filetypes = { c = true, cpp = true }
+			local disable_filetypes = { c = false, cpp = false }
 			if disable_filetypes[vim.bo[bufnr].filetype] then
 				return nil
 			else
@@ -35,6 +35,18 @@ return { -- Autoformat
 			--
 			-- You can use 'stop_after_first' to run the first available formatter from the list
 			-- javascript = { "prettierd", "prettier", stop_after_first = true },
+			c = { "clang-format" },
+			cpp = { "clang-format" },
+			cmake = { "gersemi" },
+		},
+		-- see: https://github.com/stevearc/conform.nvim/pull/352
+		formatters = {
+			["clang-format"] = {
+				prepend_args = {
+					"--style=file",
+					"--fallback-style=Webkit",
+				},
+			},
 		},
 	},
 }
