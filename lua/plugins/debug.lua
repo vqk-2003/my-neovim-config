@@ -10,7 +10,6 @@ return {
 	-- NOTE: Yes, you can install new plugins here!
 	"mfussenegger/nvim-dap",
 	-- NOTE: And you can specify dependencies as well
-	lazy = false,
 	dependencies = {
 		-- Creates a beautiful debugger UI
 		"rcarriga/nvim-dap-ui",
@@ -123,23 +122,41 @@ return {
 		})
 
 		-- Change breakpoint icons
-		-- vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
-		-- vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
-		-- local breakpoint_icons = vim.g.have_nerd_font
-		--     and { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
-		--   or { Breakpoint = '●', BreakpointCondition = '⊜', BreakpointRejected = '⊘', LogPoint = '◆', Stopped = '⭔' }
-		-- for type, icon in pairs(breakpoint_icons) do
-		--   local tp = 'Dap' .. type
-		--   local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
-		--   vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
-		-- end
+		vim.api.nvim_set_hl(0, "DapBreak", { fg = "#e51400" })
+		vim.api.nvim_set_hl(0, "DapStop", { fg = "#ffcc00" })
+		local breakpoint_icons = vim.g.have_nerd_font
+				and {
+					Breakpoint = "",
+					BreakpointCondition = "",
+					BreakpointRejected = "",
+					LogPoint = "",
+					Stopped = "",
+				}
+			or {
+				Breakpoint = "●",
+				BreakpointCondition = "⊜",
+				BreakpointRejected = "⊘",
+				LogPoint = "◆",
+				Stopped = "󰜴",
+			}
+		for type, icon in pairs(breakpoint_icons) do
+			local tp = "Dap" .. type
+			local hl = (type == "Stopped") and "DapStop" or "DapBreak"
+			vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
+		end
 
 		dap.adapters.codelldb = {
-			type = "executable",
-			command = "codelldb", -- or if not in $PATH: "/absolute/path/to/codelldb"
+			type = "server",
+			port = "${port}",
+			executable = {
+				-- codelldb should be in $PATH, but the only way for it to work for me is to specify the path
+				-- For explanation for the line below, see: https://github.com/mason-org/mason.nvim/discussions/33#discussioncomment-13095373
+				command = vim.fn.exepath("codelldb"), -- or if not in $PATH: "/absolute/path/to/codelldb"
+				args = { "--port", "${port}" },
 
-			-- On windows you may have to uncomment this:
-			detached = false,
+				-- On windows you may have to uncomment this:
+				detached = false,
+			},
 		}
 
 		dap.configurations.cpp = {

@@ -261,7 +261,8 @@ return {
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
 			"clang-format", --Used to format C/C++ code
-			"gersemi", -- USed to format CMake file
+			"gersemi", -- Used to format CMake file
+			"codelldb", -- Used to debug C/C++/Rust
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
