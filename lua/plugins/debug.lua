@@ -134,17 +134,9 @@ return {
 		--   vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
 		-- end
 
-		dap.listeners.after.event_initialized["dapui_config"] = dapui.open
-		dap.listeners.before.event_terminated["dapui_config"] = dapui.close
-		dap.listeners.before.event_exited["dapui_config"] = dapui.close
-
-		local mason_registry = require("mason-registry")
-		local codelldb = mason_registry.get_package("codelldb")
-		local codelldb_path = codelldb:get_install_path() .. "/extension/lldb/bin/lldb"
-
 		dap.adapters.codelldb = {
 			type = "executable",
-			command = codelldb_path,
+			command = "codelldb", -- or if not in $PATH: "/absolute/path/to/codelldb"
 
 			-- On windows you may have to uncomment this:
 			detached = false,
@@ -163,6 +155,12 @@ return {
 			},
 		}
 
+		dap.configurations.c = dap.configurations.cpp
+		dap.configurations.rust = dap.configurations.cpp
+
+		dap.listeners.after.event_initialized["dapui_config"] = dapui.open
+		dap.listeners.before.event_terminated["dapui_config"] = dapui.close
+		dap.listeners.before.event_exited["dapui_config"] = dapui.close
 		-- Install golang specific config
 		-- require("dap-go").setup({
 		-- 	delve = {
