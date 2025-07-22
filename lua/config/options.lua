@@ -36,6 +36,10 @@ vim.o.shiftwidth = 2 -- Insert 2 spaces on tab
 vim.o.expandtab = true -- Use spaces instead of tabs
 vim.o.smartindent = true -- Insert indents automatically
 vim.opt.completeopt = { "menu", "menuone", "noselect" } -- auto completion options
-vim.o.winborder = "rounded" -- Set window border: https://gpanders.com/blog/whats-new-in-neovim-0-11/
+
+-- Set window border: https://gpanders.com/blog/whats-new-in-neovim-0-11/
+-- Disable for now until which-key updates
+-- vim.o.winborder = "rounded"
+
 vim.o.termguicolors = true -- Enable true color support
 vim.o.wrap = false -- Disable line wrap
