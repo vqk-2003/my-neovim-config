@@ -1,0 +1,41 @@
+-- Set <space> as the leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Sync clipboard between OS and Neovim.
+--  Schedule the setting after `UiEnter` because it can increase startup-time.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+vim.schedule(function()
+  vim.o.clipboard = 'unnamedplus'
+end)
+
+-- Sets how neovim will display certain whitespace characters in the editor.
+vim.o.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+vim.o.number = true -- Show line numbers
+vim.o.mouse = "a" -- Enable mouse mode
+vim.o.showmode = false -- Don't show the mode
+vim.o.breakindent = true -- Enable break indent
+vim.o.undofile = true -- Save undo history
+vim.o.ignorecase = true -- Ignore case by default
+vim.o.smartcase = true -- Case sensitive if an uppercase is entered
+vim.o.signcolumn = "yes" -- Enable signcolumn
+vim.o.updatetime = 250 -- Decrease update time
+vim.o.timeoutlen = 300 -- Decrease mapped sequence wait time
+vim.o.splitright = true -- Open new horizontal splits right
+vim.o.splitbelow = true -- Open new vertical splits bottom
+vim.o.inccommand = "split" -- Preview substitution live as you type
+vim.o.cursorline = true -- Show which line your cursor is on
+vim.o.scrolloff = 999 -- Minimal number of screen lines to keep above and below the cursor
+vim.o.confirm = true -- Asking if you want to save changes when exit an unsaved buffer
+vim.o.tabstop = 2 -- Number of spaces per tab
+vim.o.softtabstop = 2 -- Number of spaces in tab when editing
+vim.o.shiftwidth = 2 -- Insert 2 spaces on tab
+vim.o.expandtab = true -- Use spaces instead of tabs
+vim.o.smartindent = true -- Insert indents automatically
+vim.opt.completeopt = { "menu", "menuone", "noselect" } -- auto completion options
+vim.o.winborder = "rounded" -- Set window border: https://gpanders.com/blog/whats-new-in-neovim-0-11/
+vim.o.termguicolors = true -- Enable true color support
+vim.o.wrap = false -- Disable line wrap
