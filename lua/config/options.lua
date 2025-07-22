@@ -21,7 +21,7 @@ opt.list = false -- Set how Neovim will display certain whitespace characters in
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 opt.inccommand = "split" -- Preview substitution live as you type
 opt.cursorline = true -- Show which line your cursor is on
-opt.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor
+opt.scrolloff = 100 -- Minimal number of screen lines to keep above and below the cursor
 opt.confirm = true -- Asking if you want to save changes when exit an unsaved buffer
 opt.tabstop = 4 -- Number of spaces per tab
 opt.softtabstop = 4 -- Number of spaces in tab when editing
@@ -29,3 +29,4 @@ opt.shiftwidth = 4 -- Insert 4 spaces on tab
 opt.expandtab = true -- Use spaces instead of tabs
 opt.smartindent = true -- Insert indents automatically
 opt.completeopt = { "menu", "menuone", "noselect" }
+vim.o.winborder = "rounded" -- See: https://gpanders.com/blog/whats-new-in-neovim-0-11/
