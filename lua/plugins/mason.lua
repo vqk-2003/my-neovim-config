@@ -1,6 +1,6 @@
 return {
   "mason-org/mason.nvim",
-  cmd = "Mason",
+  lazy = true,
   config = function()
     require("mason").setup()
 
@@ -14,6 +14,7 @@ return {
       -- Formatter
       "clang-format", -- C/C++
       "stylua", -- Lua
+      "gersemi", -- CMake
 
       -- Linter
 

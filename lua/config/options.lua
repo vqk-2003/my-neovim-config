@@ -28,18 +28,18 @@ vim.o.splitright = true -- Open new horizontal splits right
 vim.o.splitbelow = true -- Open new vertical splits bottom
 vim.o.inccommand = "split" -- Preview substitution live as you type
 vim.o.cursorline = true -- Show which line your cursor is on
-vim.o.scrolloff = 999 -- Minimal number of screen lines to keep above and below the cursor
+vim.o.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor
 vim.o.confirm = true -- Asking if you want to save changes when exit an unsaved buffer
 vim.o.tabstop = 2 -- Number of spaces per tab
 vim.o.softtabstop = 2 -- Number of spaces in tab when editing
 vim.o.shiftwidth = 2 -- Insert 2 spaces on tab
 vim.o.expandtab = true -- Use spaces instead of tabs
 vim.o.smartindent = true -- Insert indents automatically
-vim.opt.completeopt = { "menu", "menuone", "noselect" } -- auto completion options
+vim.opt.completeopt = { "menu", "menuone", "noselect", "fuzzy" } -- auto completion options
 
 -- Set window border: https://gpanders.com/blog/whats-new-in-neovim-0-11/
 -- Disable for now until which-key updates
--- vim.o.winborder = "rounded"
+-- vim.o.winborder = "single"
 
 vim.o.termguicolors = true -- Enable true color support
 vim.o.wrap = false -- Disable line wrap
