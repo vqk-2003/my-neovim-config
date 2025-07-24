@@ -5,7 +5,7 @@ return {
     -- Make sure packages are added to PATH
     "mason-org/mason.nvim",
     -- Useful status updates for LSP
-    { 'j-hui/fidget.nvim', opts = {} },
+    { "j-hui/fidget.nvim", opts = {} },
   },
   config = function()
     -- Enable LSP
@@ -58,7 +58,10 @@ return {
         -- Auto-completion
         if client and client:supports_method("textDocument/completion") then
           -- Optional: trigger autocompletion on EVERY keypress. May be slow!
-          local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+          local chars = {}
+          for i = 32, 126 do
+            table.insert(chars, string.char(i))
+          end
           client.server_capabilities.completionProvider.triggerCharacters = chars
 
           vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
@@ -94,11 +97,11 @@ return {
             callback = function(event2)
               vim.lsp.buf.clear_references()
               vim.api.nvim_clear_autocmds({ group = "my-lsp-highlight", buffer = event2.buf })
-            end
+            end,
           })
         end
 
-        -- Auto-format on save or uncomment to use conform.nvim instead
+        -- Auto-format on save or comment to use conform.nvim instead
         -- if client and not client:supports_method("textDocument/willSaveWaitUntil") and client:supports_method("textDocument/format") then
         --   vim.api.nvim_create_autocmd("BufWritePre", {
         --     group = vim.api.nvim_create_augroup("my-lsp-format", { clear = true }),
@@ -122,11 +125,11 @@ return {
           [vim.diagnostic.severity.WARN] = "󰀪",
           [vim.diagnostic.severity.INFO] = "󰋽",
           [vim.diagnostic.severity.HINT] = "󰌶",
-        }
+        },
       },
       virtual_lines = {
         current_line = true,
-      }
+      },
     })
   end,
 }

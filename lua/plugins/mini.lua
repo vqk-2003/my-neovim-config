@@ -21,11 +21,11 @@ return {
     })
 
     -- mini.indentscope
-    require("mini.indentscope").setup({
-      draw = {
-        animation = require("mini.indentscope").gen_animation.none(),
-      },
-    })
+    -- require("mini.indentscope").setup({
+    --   draw = {
+    --     animation = require("mini.indentscope").gen_animation.none(),
+    --   },
+    -- })
 
     -- mini.pairs
     require("mini.pairs").setup()
