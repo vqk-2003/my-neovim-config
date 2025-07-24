@@ -3,22 +3,18 @@ return {
   event = "BufWritePre",
   cmd = { "ConformInfo" },
   dependencies = { "mason-org/mason.nvim" },
+  keys = {
+    {
+      "<Leader>cf",
+      function()
+        require("conform").format({ async = true, lsp_format = "never" })
+      end,
+      desc = "[F]ormat buffer",
+    },
+  },
   opts = {
     notify_on_error = false,
-    format_on_save = function(bufnr)
-      -- Disable "format_on_save lsp_fallback" for languages that don't
-      -- have a well standardized coding style. You can add additional
-      -- languages here or re-enable it for the disabled ones.
-      local disable_filetypes = { c = true } -- C does not have a standard coding style :(
-      if disable_filetypes[vim.bo[bufnr].filetype] then
-        return nil
-      else
-        return {
-          timeout_ms = 1000,
-          lsp_format = "fallback",
-        }
-      end
-    end,
+    format_on_save = nil, -- Disable format on save
     formatters_by_ft = {
       lua = { "stylua" },
       c = { "clang-format" },

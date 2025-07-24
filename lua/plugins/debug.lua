@@ -41,14 +41,14 @@ return {
       desc = "Debug: Step Out",
     },
     {
-      "<leader>b",
+      "<leader>cb",
       function()
         require("dap").toggle_breakpoint()
       end,
       desc = "Debug: Toggle Breakpoint",
     },
     {
-      "<leader>B",
+      "<leader>cB",
       function()
         require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
       end,
@@ -108,8 +108,8 @@ return {
         command = vim.fn.exepath("codelldb"), -- or if not in $PATH: "/absolute/path/to/codelldb"
         args = { "--port", "${port}" },
 
-        -- On windows you may have to uncomment this:
-        detached = false,
+        -- On windows you need to run attached:
+        detached = vim.fn.has("win32") == 0,
       },
     }
 

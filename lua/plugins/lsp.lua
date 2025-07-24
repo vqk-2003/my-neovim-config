@@ -6,6 +6,8 @@ return {
     "mason-org/mason.nvim",
     -- Useful status updates for LSP
     { "j-hui/fidget.nvim", opts = {} },
+    -- Auto-completion
+    "saghen/blink.cmp",
   },
   config = function()
     -- Enable LSP
@@ -55,17 +57,17 @@ return {
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
 
-        -- Auto-completion
-        if client and client:supports_method("textDocument/completion") then
-          -- Optional: trigger autocompletion on EVERY keypress. May be slow!
-          local chars = {}
-          for i = 32, 126 do
-            table.insert(chars, string.char(i))
-          end
-          client.server_capabilities.completionProvider.triggerCharacters = chars
-
-          vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
-        end
+        -- Auto-completion or comment to use blink.cmp instead
+        -- if client and client:supports_method("textDocument/completion") then
+        --   -- Optional: trigger autocompletion on EVERY keypress. May be slow!
+        --   local chars = {}
+        --   for i = 32, 126 do
+        --     table.insert(chars, string.char(i))
+        --   end
+        --   client.server_capabilities.completionProvider.triggerCharacters = chars
+        --
+        --   vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+        -- end
 
         -- Create keymap to toggle inlay hints
         if client and client:supports_method("textDocument/inlayHint", event.buf) then
