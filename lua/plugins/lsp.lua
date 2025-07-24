@@ -98,16 +98,16 @@ return {
           })
         end
 
-        -- Auto-format on save
-        if client and not client:supports_method("textDocument/willSaveWaitUntil") and client:supports_method("textDocument/format") then
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            group = vim.api.nvim_create_augroup("my-lsp-format", { clear = true }),
-            buffer = event.buf,
-            callback = function()
-              vim.lsp.buf.format({ bufnr = event.buf, id = client.id, timeout_ms = 1000 })
-            end,
-          })
-        end
+        -- Auto-format on save or uncomment to use conform.nvim instead
+        -- if client and not client:supports_method("textDocument/willSaveWaitUntil") and client:supports_method("textDocument/format") then
+        --   vim.api.nvim_create_autocmd("BufWritePre", {
+        --     group = vim.api.nvim_create_augroup("my-lsp-format", { clear = true }),
+        --     buffer = event.buf,
+        --     callback = function()
+        --       vim.lsp.buf.format({ bufnr = event.buf, id = client.id, timeout_ms = 1000 })
+        --     end,
+        --   })
+        -- end
       end,
     })
 

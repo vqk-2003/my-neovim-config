@@ -8,7 +8,7 @@ return {
       { "<Leader>s", group = "[S]earch" },
       { "<Leader>t", group = "[T]oggle" },
       { "<Leader>h", group = "Git [H]unk", mode = { "n", "v" } },
-      { "gr",        group = "LSP" },
+      { "gr", group = "LSP" },
     },
   },
   keys = {
