@@ -7,6 +7,15 @@ return {
     -- Required dependency for nvim-dap-ui
     "nvim-neotest/nvim-nio",
 
+    -- Show inline values
+    {
+      "theHamsta/nvim-dap-virtual-text",
+      opts = {
+        virt_text_pos = "eol", -- Show at the end of line
+        commented = true, -- Prefix virtual text with comment string
+      },
+    },
+
     -- Installs the debug adapters for you
     "mason-org/mason.nvim",
   },
@@ -22,16 +31,16 @@ return {
     {
       "<F1>",
       function()
-        require("dap").step_into()
+        require("dap").step_over()
       end,
-      desc = "Debug: Step Into",
+      desc = "Debug: Step Over",
     },
     {
       "<F2>",
       function()
-        require("dap").step_over()
+        require("dap").step_into()
       end,
-      desc = "Debug: Step Over",
+      desc = "Debug: Step Intro",
     },
     {
       "<F3>",
@@ -39,6 +48,13 @@ return {
         require("dap").step_out()
       end,
       desc = "Debug: Step Out",
+    },
+    {
+      "<F4>",
+      function()
+        require("dap").restart_frame()
+      end,
+      desc = "Debug: Restart Frame",
     },
     {
       "<leader>cb",
@@ -105,17 +121,17 @@ return {
       type = "server",
       port = "${port}",
       executable = {
-        command = vim.fn.exepath("codelldb"), -- or if not in $PATH: "/absolute/path/to/codelldb"
+        command = vim.fn.exepath("codelldb"), -- this is more portable because on Windows you need to specify "codelldb.CMD"
         args = { "--port", "${port}" },
 
-        -- On windows you need to run attached:
+        -- On windows you need to set detached=false
         detached = vim.fn.has("win32") == 0,
       },
     }
 
     dap.configurations.cpp = {
       {
-        name = "Launch file",
+        name = "Basic launch file",
         type = "codelldb",
         request = "launch",
         program = function()

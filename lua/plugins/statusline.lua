@@ -11,5 +11,10 @@ return {
       },
       globalstatus = true,
     },
+    extensions = {
+      "lazy",
+      "mason",
+      "nvim-dap-ui",
+    },
   },
 }
