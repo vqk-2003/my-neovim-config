@@ -3,7 +3,8 @@ return {
   lazy = false,
   priority = 1000,
   opts = {
-    indent = {},
+    input = {}, -- Better vim.ui.input for vim.lsp.buf.rename()
+    indent = {}, -- Indentation guide
     dashboard = {
       preset = {
         keys = {

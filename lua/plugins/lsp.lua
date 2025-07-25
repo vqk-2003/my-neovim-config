@@ -14,6 +14,7 @@ return {
     vim.lsp.enable({
       "clangd",
       "lua_ls",
+      "neocmake",
     })
     -- Run when an LSP attaches to a particular buffer
     vim.api.nvim_create_autocmd("LspAttach", {

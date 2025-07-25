@@ -6,7 +6,8 @@ return {
 
     -- These are package names sourced from the Mason registry,
     -- and may not necessarily match the server names used in lspconfig
-    local ensure_installed = { -- Language server
+    local ensure_installed = {
+      -- Language server
       "clangd", -- C/C++
       "neocmakelsp", -- CMake
       "lua-language-server", -- Lua
