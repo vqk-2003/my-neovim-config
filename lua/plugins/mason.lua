@@ -7,13 +7,14 @@ return {
     -- These are package names sourced from the Mason registry,
     -- and may not necessarily match the server names used in lspconfig
     local ensure_installed = {
+      -- Install clang tools for C/C++ using external package manager
       -- Language server
-      "clangd", -- C/C++
+      -- "clangd",
       "neocmakelsp", -- CMake
       "lua-language-server", -- Lua
 
       -- Formatter
-      "clang-format", -- C/C++
+      -- "clang-format",
       "stylua", -- Lua
       "gersemi", -- CMake
 
