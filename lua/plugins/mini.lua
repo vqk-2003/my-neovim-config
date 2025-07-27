@@ -22,5 +22,8 @@ return {
 
     -- mini.pairs
     require("mini.pairs").setup()
+
+    -- mini.notify
+    require("mini.notify").setup()
   end,
 }

@@ -4,8 +4,7 @@ return {
   dependencies = {
     -- Make sure packages are added to PATH
     "mason-org/mason.nvim",
-    -- Useful status updates for LSP
-    { "j-hui/fidget.nvim", opts = {} },
+
     -- Auto-completion
     "saghen/blink.cmp",
   },
