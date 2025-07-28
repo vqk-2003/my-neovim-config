@@ -57,14 +57,14 @@ return {
       desc = "Debug: Restart Frame",
     },
     {
-      "<leader>cb",
+      "<leader>b",
       function()
         require("dap").toggle_breakpoint()
       end,
       desc = "Debug: Toggle Breakpoint",
     },
     {
-      "<leader>cB",
+      "<leader>B",
       function()
         require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
       end,

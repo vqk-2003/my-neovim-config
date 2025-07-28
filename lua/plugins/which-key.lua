@@ -9,7 +9,6 @@ return {
       { "<Leader>t", group = "[T]oggle" },
       { "<Leader>h", group = "Git [H]unk", mode = { "n", "v" } },
       { "gr", group = "LSP" },
-      { "<Leader>c", group = "[C]ode" },
     },
   },
   keys = {

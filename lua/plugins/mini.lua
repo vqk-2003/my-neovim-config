@@ -16,7 +16,7 @@ return {
     -- mini.jump2d
     require("mini.jump2d").setup({
       mappings = {
-        start_jumping = "<Leader>cj",
+        start_jumping = "<Leader>j",
       },
     })
 
