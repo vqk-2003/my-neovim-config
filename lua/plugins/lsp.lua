@@ -14,6 +14,7 @@ return {
       "clangd",
       "lua_ls",
       "neocmake",
+      "rust_analyzer",
     })
     -- Run when an LSP attaches to a particular buffer
     vim.api.nvim_create_autocmd("LspAttach", {

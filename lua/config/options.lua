@@ -39,7 +39,7 @@ vim.opt.completeopt = { "menu", "menuone", "noselect", "fuzzy" } -- auto complet
 
 -- Set window border: https://gpanders.com/blog/whats-new-in-neovim-0-11/
 -- Disable for now until which-key updates
--- vim.o.winborder = "single"
+vim.o.winborder = "rounded"
 
 vim.o.termguicolors = true -- Enable true color support
 vim.o.wrap = false -- Disable line wrap
