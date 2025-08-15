@@ -1,5 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "master",
   event = "VeryLazy",
   build = ":TSUpdate",
   main = "nvim-treesitter.configs",
@@ -8,6 +9,8 @@ return {
     ensure_installed = {
       "c",
       "cpp",
+      "rust",
+      "python",
       "cmake",
       "lua",
       "vim",

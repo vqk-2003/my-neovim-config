@@ -11,9 +11,9 @@ return {
     { "<C-h>", "<cmd>Treewalker Left<CR>", desc = "Jump to parent node", mode = { "n", "v" } },
     { "<C-l>", "<cmd>Treewalker Right<CR>", desc = "Jump to child node", mode = { "n", "v" } },
 
-    { "<C-A-k>", "<cmd>Treewalker SwapUp<CR>", desc = "Swap with the node above" },
-    { "<C-A-j>", "<cmd>Treewalker SwapDown<CR>", desc = "Swap with the node beneath" },
-    { "<C-A-h>", "<cmd>Treewalker SwapLeft<CR>", desc = "Swap with the left neighbor node" },
-    { "<C-A-l>", "<cmd>Treewalker SwapRight<CR>", desc = "Swap with the right neighbor node" },
+    { "<C-S-k>", "<cmd>Treewalker SwapUp<CR>", desc = "Swap with the node above" },
+    { "<C-S-j>", "<cmd>Treewalker SwapDown<CR>", desc = "Swap with the node beneath" },
+    { "<C-S-h>", "<cmd>Treewalker SwapLeft<CR>", desc = "Swap with the left neighbor node" },
+    { "<C-S-l>", "<cmd>Treewalker SwapRight<CR>", desc = "Swap with the right neighbor node" },
   },
 }
