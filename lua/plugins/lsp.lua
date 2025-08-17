@@ -15,6 +15,7 @@ return {
       "lua_ls",
       "neocmake",
       "rust_analyzer",
+      "basedpyright",
     })
     -- Run when an LSP attaches to a particular buffer
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -27,6 +28,14 @@ return {
         end
 
         local picker = require("snacks.picker")
+        -- Rename the variable under your cursor.
+        --  Most Language Servers support renaming across files, etc.
+        map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
+
+        -- Execute a code action, usually your cursor needs to be on top of an error
+        -- or a suggestion from your LSP for this to activate.
+        map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+
         -- Find references for the word under your cursor.
         map("grr", picker.lsp_references, "[G]oto [R]eferences")
 

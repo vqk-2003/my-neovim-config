@@ -21,6 +21,7 @@ return {
       cpp = { "clang-format" },
       cmake = { "gersemi" },
       rust = { "rustfmt" },
+      python = { "ruff" },
     },
   },
 }

@@ -12,11 +12,13 @@ return {
       -- "clangd",
       "neocmakelsp", -- CMake
       "lua-language-server", -- Lua
+      "basedpyright", -- Python
 
       -- Formatter
       -- "clang-format",
       "stylua", -- Lua
       "gersemi", -- CMake
+      "ruff", -- Python
 
       -- Linter
 
